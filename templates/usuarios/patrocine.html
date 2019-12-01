@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.2, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.2, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo4.png" type="image/x-icon">
+  <meta name="description" content="">
+
+  <title>Home</title>
+  <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons/mobirise-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/tether/tether.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/animatecss/animate.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+
+
+
+</head>
+<body>
+        {% include "noticia/menu.html" %}
+
+  <section class="carousel slide testimonials-slider cid-rFGv4bOju9" data-interval="false" id="testimonials-slider1-a">
+
+
+
+    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(165, 249, 167);">
+    </div>
+
+    <div class="container text-center">
+        <h2 class="pb-5 mbr-fonts-style display-2">{{quantia|length}}</h2>
+
+        <div class="user col-md-12">
+                <div class="user_text pb-3">
+                   Missões patrocinadas.
+                </div>
+                <div class="user_name mbr-bold pb-2 mbr-fonts-style display-7">
+                   Desça a página para ver as missões abertas para patrocínio, após escolher qual você quer patrocinar
+                    selecione seu nome no menu abaixo.
+                </div>
+                <div class="user_desk mbr-light mbr-fonts-style display-7">
+
+                </div>
+
+
+            </div>
+    </div>
+</section>
+
+<section class="engine"><a href="https://mobirise.info/b">create a site for free</a></section><section class="mbr-section article content9 cid-rFGwmck9vz" id="content9-b">
+
+
+
+    <div class="container">
+        <div class="inner-container" style="width: 100%;">
+            <hr class="line" style="width: 25%;">
+            <div class="section-text align-center mbr-fonts-style display-5">"Já escolheu uma missão?Selecione-a no formulário abaixo."
+            <br>
+                <br>
+            <hr class="line" style="width: 25%;">
+        </div>
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section form1 cid-rFGyzLYEjF" id="form1-c">
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="media-container-column col-lg-8" >
+                 <form method="POST" enctype="multipart/form-data" action="{% url 'usuarios:escolha' %}" class="post-form">
+                     {% csrf_token %}
+                     <div class="form-group">
+                         <label>Selecione a missão</label>
+                         <select name="patrocinar" class="form-control">
+                         {% for missao in missoes %}
+                         <option value="{{ missao.id }}"> {{ missao.titulo }} </option>
+                         {% endfor %}
+                     </select>
+
+                     </div>
+                     {{ form|crispy }}
+
+                    <button type="submit" class="save btn btn-default btn-outline-secondary">Save</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section content5 cid-rFGz9d92qD mbr-parallax-background" id="content5-e">
+
+
+
+
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-1">
+                    Veja a...</h2>
+                <h3 class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-5">
+                    Lista de missões válidas</h3>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features3 cid-rFGzabOK9A" id="features3-f">
+
+
+
+
+    <div class="container" style="background-color:white; overflow:auto;">
+        <div class="cards-container ">
+            {%  for missao in missoes %}
+            <div class="card  col-md-3" style="float:left; height:250px; margin:5px; background-color:#f9f295; overflow:auto;">
+                <div class="card-wrapper">
+                    <div class="card-header">
+                         {{ missao.titulo }}
+                    </div>
+
+                    <div class="card-box">
+                        <p class="mbr-text mbr-fonts-style display-7">
+                           {{ missao.descricao|truncatewords:11 }}
+                        </p>
+                    </div>
+                    <div class="mbr-section-btn text-center">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".{{ missao.titulo|slugify }}">Veja + dados</button>
+
+                            <div class="modal fade bd-example-modal-lg {{ missao.titulo|slugify }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                              <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color:#f9f295; ">
+                                    <h5 class="modal-title" id="exampleModalLabel">Status de: {{ missao.titulo }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body container-fluid pb-3 mbr-fonts-style ">
+                                      <div class="row">
+                                          <div class="col-md-5">
+                                              <h5>Descrição:<br> {{ missao.descricao }}
+                                      <br><br><br></h5>
+
+                                          </div>
+                                          <div class="col-md-5">
+                                               <h5>Utilidade:<br>{{ missao.utilidade }}<br><br><br></h5>
+                                      <br>
+                                      <br>
+                                          </div>
+                                          <div class="col-md-12" style="text-align:left;">
+                                              {%  if missao.arquivo %}
+                                      <a href="{{ MEDIA_URL }}{{missao.arquivo.url}}" target="_blank" class="text-secondary"><h5>Arquivo da missão</h5></a>
+                                      {%  endif %}
+                                          </div>
+
+
+                                      </div>
+
+
+
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn" data-dismiss="modal">Fechar</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+                <div style="clear:both;"></div>
+
+
+
+        </div>
+    </div>
+</section>
+{% include "noticia/footer.html" %}
+
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/tether/tether.min.js' %}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets/parallax/jarallax.min.js' %}"></script>
+  <script src="{% static 'assets/viewportchecker/jquery.viewportchecker.js' %}"></script>
+  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+
+
+ <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+    <input name="animation" type="hidden">
+  </body>
+</html>

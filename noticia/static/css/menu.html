@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="menu.css">
+<nav class="top-right open">
+	<a class="disc l1">
+		<div>Messages</div>
+	</a>
+	<a class="disc l2">
+		<div>Photos</div>
+	</a>
+	<a class="disc l3">
+		<div>Profile</div>
+	</a>
+	<a class="disc l4">
+		<div>Likes</div>
+	</a>
+	<a class="disc l5 toggle">
+		Menu
+	</a>
+</nav>
+<script>
+toggle = document.querySelectorAll(".toggle")[0];
+nav = document.querySelectorAll("nav")[0];
+toggle_open_text = 'Menu';
+toggle_close_text = 'Close';
+
+toggle.addEventListener('click', function() {
+	nav.classList.toggle('open');
+	
+  if (nav.classList.contains('open')) {
+    toggle.innerHTML = toggle_close_text;
+  } else {
+    toggle.innerHTML = toggle_open_text;
+  }
+}, false);
+
+setTimeout(function(){
+	nav.classList.toggle('open');	
+}, 800);</script>
+
+
+<p>loojhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+kkkkkkkkkkkkkkkkkkkkkkkkkkk
+kkkkkkkkkkkkkkkkkkkkkkkkk</p>
+<br>
+<br>
+<br>
+<p>jjjjjjjjjjjjjjjjjjjj</p>

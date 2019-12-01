@@ -1,0 +1,77 @@
+
+
+ <nav class="navbar navbar-expand-lg navbar-dark primary-color mbr-text pb-3 mbr-fonts-style display-7" style="background-color: black; ">
+
+                <!-- Navbar brand -->
+                <a class="navbar-brand mbr-text pb-3 mbr-fonts-style" href="#">Missi</a>
+
+                <!-- Collapse button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                  aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="basicExampleNav">
+
+                  <!-- Links -->
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="{% url 'noticias:post_list' %}">Início
+                        <span class="sr-only">(current)</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'missao:listamissao' %}">Ver Missões</a>
+                    </li>
+
+                  {% if user.is_authenticated and user.is_staff %}
+                       <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink3" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Menu do Patrocinador</a>
+                      <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink3">
+                        <a class="dropdown-item " href="{% url 'usuarios:patrocine' %}">Patrocinar e meus dados!!</a>
+                        <a class="dropdown-item" href="{% url 'usuarios:trocarpremio' %}">Resgatar prêmio</a>
+						<a class="dropdown-item" href="{% url 'usuarios:do_logout' %}">Sair</a>
+                      </div>
+                    </li>
+
+                      {% elif user.is_authenticated %}
+
+
+
+                        <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Perfil</a>
+                          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item " href="{% url 'usuarios:perfil' %}">Dados e cadastros</a>
+                            <a class="dropdown-item" href="{% url 'usuarios:missoesandamento' %}">Missões em andamento</a>
+                            <a class="dropdown-item" href="{% url 'usuarios:status' %}">Missões finalizadas</a>
+                            <a class="dropdown-item" href="{% url 'usuarios:do_logout' %}">Sair</a>
+                          </div>
+                        </li>
+
+
+				 {% else %}
+					  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Entre e participe</a>
+                      <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink1">
+                        <a class="dropdown-item " href="{% url 'usuarios:do_login' %}">Entrar</a>
+                        <a class="dropdown-item" href="{% url 'usuarios:cadastro' %}">Cadastrar</a>
+
+                      </div>
+                    </li>
+
+				 {% endif %}
+
+                  </ul>
+                  <!-- Links -->
+
+
+                </div>
+                <!-- Collapsible content -->
+
+              </nav>
+              <!--/.Navbar-->

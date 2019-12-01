@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+{% load static %}
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.2, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.2, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo4.png" type="image/x-icon">
+  <meta name="description" content="">
+
+  <title>Home</title>
+  <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons/mobirise-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/tether/tether.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/animatecss/animate.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+
+
+
+</head>
+<body>
+       {% include "noticia/menu.html" %}
+
+  <section class="header10 cid-rFGmOyM5dg mbr-fullscreen mbr-parallax-background" id="header10-1">
+
+
+
+
+
+    <div class="container">
+        <div class="media-container-column mbr-white p-5 align-left col-lg-8 col-md-10">
+            <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1"><em>Bem-Vindo</em></h1>
+
+            <p class="mbr-text pb-3 mbr-fonts-style display-5">
+               No missi você participa de missões, interage com a comunidade, ganha prêmios e ainda ajuda o meio ambiente.</p>
+
+        </div>
+    </div>
+
+    <div class="mbr-arrow hidden-sm-down" aria-hidden="true">
+        <a href="#next">
+            <i class="mbri-down mbr-iconfont"></i>
+        </a>
+    </div>
+</section>
+
+<section class="engine"><a href="https://mobirise.info/g">how to build a website</a></section><section class="counters5 counters cid-rFGplhZSiZ" id="counters5-2">
+
+
+
+
+
+    <div class="container pt-4 mt-2">
+        <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">Como funciona</h2>
+        <h3 class="mbr-section-subtitle pb-5 align-center mbr-fonts-style display-5">
+            Detalhes do Missi</h3>
+        <div class="row justify-content-center">
+            <div class="cards-block">
+                <div class="cards-container">
+                    <div class="card px-3 align-left col-12">
+                        <div class="panel-item p-4 d-flex">
+                            <div class="card-img pr-3">
+                                <h3 class="img-text d-flex align-items-center justify-content-center">
+                                    1
+                                </h3>
+                            </div>
+                            <div class="card-text">
+                                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">Cadastro</h4>
+                                <p class="mbr-content-text mbr-fonts-style display-7">
+                                    Você faz seu cadastro e o cadastro de suas ideias de missão. É necessário ter detalhes do que planeja fazer e como executar.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card px-3 align-left col-12">
+                        <div class="panel-item p-4 d-flex">
+                            <div class="card-img pr-3">
+                                <h3 class="img-text d-flex align-items-center justify-content-center">
+                                    2
+                                </h3>
+                            </div>
+                            <div class="card-text">
+                                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">Aprovação</h4>
+                                <p class="mbr-content-text mbr-fonts-style display-7">
+                                    Suas missões serão enviadas para nossos patrocinadores, que selecionarão as propostas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card px-3 align-left col-12">
+                        <div class="panel-item p-4 d-flex">
+                            <div class="card-img pr-3">
+                                <h3 class="img-text d-flex align-items-center justify-content-center">
+                                    3
+                                </h3>
+                            </div>
+                            <div class="card-text">
+                                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">Participação</h4>
+                                <p class="mbr-content-text mbr-fonts-style display-7">
+                                    Quando for validada, sua missão aparecerá para todos participarem.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section content5 cid-rFGqGMUXGN mbr-parallax-background" id="content5-3">
+
+
+
+
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-1">
+                    Recados</h2>
+                <h3 class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-5">
+                    Ultimas atualizações do Missi.</h3>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features3 cid-rFGrswOvmJ" id="features3-4">
+
+
+
+
+    <div class="container">
+        <div class="media-container-row">
+            {% for post in posts|slice:":3" %}
+
+            <div class="card p-3 col-12 col-md-6 col-lg-4" style="overflow:auto;">
+                <div class="card-wrapper">
+                    <div class="card-header">{{ post.titulo }}</div>
+
+                    <div class="card-box">
+
+                        <p class="mbr-text mbr-fonts-style display-7">
+                           {{ post.resumo }}
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            {% endfor %}
+
+
+
+
+
+        </div>
+    </div>
+</section>
+{% include "noticia/footer.html" %}
+
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/tether/tether.min.js' %}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets/parallax/jarallax.min.js' %}"></script>
+  <script src="{% static 'assets/viewportchecker/jquery.viewportchecker.js' %}"></script>
+  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+
+
+ <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+    <input name="animation" type="hidden">
+  </body>
+</html>

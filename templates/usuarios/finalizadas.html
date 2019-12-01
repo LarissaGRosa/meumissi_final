@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+{% load static %}
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.2, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.2, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo4.png" type="image/x-icon">
+  <meta name="description" content="">
+
+  <title>Home</title>
+  <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons/mobirise-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/tether/tether.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/animatecss/animate.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+</head>
+<body>
+       {% include "noticia/menu.html" %}
+
+ <section class="cid-rFGmOyM5dg  " >
+
+     <h4 class="col-md-12" style="color:white; display:block; height:40px;">  Missões desistidas </h4>
+      <div class="container col-md-12 features3 " style="height:400px; overflow:auto; margin-top:50px; margin:auto;">
+
+           <div>
+        <div class="cards-container ">
+
+            {%  for missao in mymissoes %}
+            {%  if missao.is_desistido == True %}
+
+            <div class="card  col-md-3" style="float:left; margin:5px; background-color:#f9f295; height:200px; overflow:auto;">
+                <div class="card-wrapper">
+                    <div class="card-header">{{ missao.id_missao.titulo }}</div>
+                    <div class="card-box">
+                        <h5 class="card-title mbr-fonts-style display-7">
+                            Você desistiu dessa missão e não poderá participar mais...
+                        </h5>
+                        <hr>
+                        <p class="mbr-text mbr-fonts-style display-7">
+                           {{ missao.id_missao.descricao|truncatewords:11 }}
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        </div>
+      </div>
+
+    <h4 class="col-md-12" style="color:white; display:block; height:40px;">  Missões concluídas </h4>
+         <div class="container col-md-12 features3 " style="height:400px; overflow:auto; margin-top:50px; margin:auto;">
+
+           <div>
+        <div class="cards-container ">
+
+            {%  for missao in mymissoes %}
+            {%  if missao.id_missao.isTerminada == True %}
+
+            <div class="card  col-md-3" style="float:left; margin:5px; background-color:#f9f295; height:200px; overflow:auto;">
+                <div class="card-wrapper">
+                    <div class="card-header">{{ missao.id_missao.titulo }}</div>
+                    <div class="card-box">
+
+                        <p class="mbr-text mbr-fonts-style display-7">
+                           {{ missao.id_missao.descricao|truncatewords:11 }}
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        </div>
+         </div>
+      <h4 class="col-md-12" style="color:white; display:block; height:40px;">  Missões que venci </h4>
+
+               <div class="container col-md-12 features3 " style="height:400px; overflow:auto; margin-top:50px; margin:auto;">
+
+           <div>
+        <div class="cards-container ">
+
+            {%  for missao in mymissoes %}
+            {%  if missao.is_ganhador == True %}
+
+            <div class="card  col-md-3" style="float:left; margin:5px;background-color:#f9f295; height:200px; overflow:auto;">
+                <div class="card-wrapper">
+                    <div class="card-header"> {{ missao.id_missao.titulo }}</div>
+
+                    <div class="card-box">
+                        <h5>Descrição:</h5>
+                        <p class="mbr-text mbr-fonts-style display-7">
+                           {{ missao.id_missao.descricao|truncatewords:11 }}
+                        </p>
+                        <hr>
+                       {% if missao.id_missao.isTrocado == False %}
+                        <p>
+                            -Essa missão tem o prêmio: {{ missao.id_missao.premio }}
+                            <br>
+                            -Patrocinada por: {{ missao.id_missao.patrocinador }}
+                            <br>
+                            Para resgatar vá até o estabelecimento do patrocinador e mostre este código:
+                            <br>
+                            {{ missao.id_missao.cod_premio }}
+
+
+                        </p>
+                        {% else %}
+                        <p> Você já resgatou o prêmio </p>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+           </div>
+               </div>
+      </div>
+                <div style="clear:both;"></div>
+     </div>
+
+
+ </section>
+
+
+
+
+
+
+
+
+{% include "noticia/footer.html" %}
+
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/tether/tether.min.js' %}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets/parallax/jarallax.min.js' %}"></script>
+  <script src="{% static 'assets/viewportchecker/jquery.viewportchecker.js' %}"></script>
+  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+
+
+ <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+    <input name="animation" type="hidden">
+  </body>
+</html>
