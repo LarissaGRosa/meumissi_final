@@ -120,7 +120,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/home/larigr/meumissi/static'
+STATIC_ROOT = '/home/meumissi/meumissi/static'
 
 MEDIA_URL = '/media/'
 
