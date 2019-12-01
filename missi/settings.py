@@ -120,7 +120,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/home/meumissi/meumissi/static'
+STATIC_ROOT = '/home/meumissi/meumissi.pythonanywhere.com/static'
 
 MEDIA_URL = '/media/'
 
