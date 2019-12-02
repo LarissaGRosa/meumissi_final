@@ -6,7 +6,7 @@ from missao.models import Missoes, Usuariomissao
 
 
 def list_missao(request):
-    missoes = Missoes.objects.exclude(patrocinador='').filter(isTerminada=False)
+    missoes = Missoes.objects.exclude(patrocinador=None).filter(isTerminada=False)
     return render(request, 'missao/missoes.html', {'missoes': missoes})
 
 
