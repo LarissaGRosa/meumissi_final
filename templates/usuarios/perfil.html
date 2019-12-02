@@ -197,7 +197,7 @@
 
                                       {%  else %}
                                        {%  if missao.patrocinador %}
-                                          <h5>A sua missão é patrocinada por XXXX com o prêmio xxxxx</h5>
+                                          <h5>A sua missão é patrocinada por {{ missao.patrocinador }} com o prêmio {{ missao.premio }}</h5>
                                           <a href="{% url 'usuarios:final_um' pk=missao.id  %}" class="btn btn-default" style="width:160px;">Finalizar</a>
 
 
